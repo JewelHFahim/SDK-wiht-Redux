@@ -12,14 +12,14 @@ const Edit = () => {
   const navigate = useNavigate();
   const { id } = useParams();
   const { data, isLoading, error, isSuccess } = useContactQuery(id);
-  console.log(id, "ID1")
+  console.log(id, "ID1");
   const [updateContact] = useUpdateContactMutation(id);
   const { register, handleSubmit } = useForm();
 
   const onSubmit = (data, e) => {
     e.preventDefault();
-    updateContact({...data, id});
-    console.log({...data, id}, "Data");
+    updateContact({ ...data, id });
+    console.log({ ...data, id }, "Data");
     navigate("/");
     toast.success("Contact Updated Successfully");
   };
@@ -65,7 +65,8 @@ const Edit = () => {
               {...register("contact")}
             />
 
-            <button type="submit">Submit</button>
+            {/* <button type="submit">Submit</button> */}
+            <input type="submit" value={"Save"} />
           </form>
         </div>
       )}

@@ -26,8 +26,8 @@ const Home = () => {
 
   return (
     <div style={{ marginTop: "50px" }}>
-      <h2>Redux Toolkit RTK Query CRUD with React and JSON Server </h2>
-      <Link style={{ marginLeft: "50%" }} to="/add">
+      <h2 style={{ marginLeft: "25%" }}  >Redux Toolkit RTK Query CRUD with React and JSON Server </h2>
+      <Link style={{ marginLeft: "45%" }} to="/add">
         <button className="btn btn-add">Add Contact</button>
       </Link>
       <br />

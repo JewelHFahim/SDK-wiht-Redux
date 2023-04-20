@@ -18,7 +18,7 @@ const Add = () => {
   const { name, email, contact } = formValue;
   const navigate = useNavigate();
   const { id } = useParams();
-  const {data, isLoading, error, isSuccess} = useContactQuery(id);
+  const {data, isLoading, error, isSuccess, isFetching} = useContactQuery(id);
   const [ updateContact ] = useUpdateContactMutation(id);
 
 
@@ -60,7 +60,14 @@ const Add = () => {
 
 
   return (
-    <div style={{ marginTop: "100px" }}>
+    <div>
+      {isLoading && <p>Loading...</p>}
+      {error && <p>Something went wrong</p>}
+      {isFetching && <p>Fetching Data</p>}
+
+      { isSuccess && 
+      
+      <div style={{ marginTop: "100px" }}>
       <form
         style={{
           margin: "auto",
@@ -100,6 +107,7 @@ const Add = () => {
 
         <input type="submit" value={id ? "Update" : "Save"} />
       </form>
+    </div>}
     </div>
   );
 };
