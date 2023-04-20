@@ -1,3 +1,5 @@
+import Edit from "../Pages/Edit";
+
 const { createBrowserRouter } = require("react-router-dom");
 const { default: Home } = require("../Pages/Home");
 const { default: Add } = require("../Pages/Add");
@@ -14,7 +16,7 @@ const router = createBrowserRouter([
   },
   {
     path: "/edit/:id",
-    element: <Add />,
+    element: <Edit />,
   },
   {
     path: "/view/:id",
