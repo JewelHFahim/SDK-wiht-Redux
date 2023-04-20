@@ -2,62 +2,25 @@ import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import "./Add.css";
-import { useAddContactMutation, useContactQuery, useUpdateContactMutation } from "../features/contactsApi";
+import {
+  useAddContactMutation,
+  useContactsQuery,
+} from "../features/contactsApi";
 import { toast } from "react-hot-toast";
-
-const initialState = {
-  name: "",
-  email: "",
-  contact: "",
-};
+import { useForm } from "react-hook-form";
 
 const Add = () => {
-  const [formValue, setFormValue] = useState(initialState);
-  const [editMode, setEditMode] = useState(false);
   const [addContact] = useAddContactMutation();
-  const { name, email, contact } = formValue;
   const navigate = useNavigate();
-  const { id } = useParams();
-  const {data, isLoading, error, isSuccess, isFetching} = useContactQuery(id);
-  const [ updateContact ] = useUpdateContactMutation(id);
+  const { register, handleSubmit } = useForm();
+  const { data, isLoading, error, isSuccess, isFetching } = useContactsQuery();
 
-
-  useEffect(() => {
-    if (id) {
-      setEditMode(true);
-      if(data){
-        setFormValue({...data})
-      }
-    } else {
-      setEditMode(false);
-      setFormValue({...initialState})
-    }
-  }, [id, data]);
-
-  const handleSubmit = async (e) => {
+  const onSubmit = async (data, e) => {
     e.preventDefault();
-    if (!name && !email && !contact) {
-      toast.error("Please provide value into each input field");
-    } else {
-      if (!editMode) {
-        await addContact(formValue);
-        navigate("/");
-        toast.success("Contact Added Successfully");
-      } else {
-        await updateContact(formValue);
-        navigate("/");
-        setEditMode(false);
-        toast.success("Contact Updated Successfully");
-      }
-    }
+      addContact(data);
+      navigate("/");
+      toast.success("Contact Updated Successfully");
   };
-
-  const handleInputChange = (e) => {
-    let { name, value } = e.target;
-    setFormValue({ ...formValue, [name]: value });
-  };
-
-
 
   return (
     <div>
@@ -65,49 +28,45 @@ const Add = () => {
       {error && <p>Something went wrong</p>}
       {isFetching && <p>Fetching Data</p>}
 
-      { isSuccess && 
-      
-      <div style={{ marginTop: "100px" }}>
-      <form
-        style={{
-          margin: "auto",
-          padding: "15px",
-          maxWidth: "400px",
-          alignContent: "center",
-        }}
-        onSubmit={handleSubmit}
-      >
-        <label htmlFor="name">Name</label>
-        <input
-          type="text"
-          id="name"
-          name="name"
-          placeholder="Your Name..."
-          value={name || ""}
-          onChange={handleInputChange}
-        />
-        <label htmlFor="email">Email</label>
-        <input
-          type="text"
-          id="email"
-          name="email"
-          placeholder="Your Email..."
-          value={email || ""}
-          onChange={handleInputChange}
-        />
-        <label htmlFor="contact">Contact</label>
-        <input
-          type="text"
-          id="contact"
-          name="contact"
-          placeholder="Your Contact No. ..."
-          value={contact || ""}
-          onChange={handleInputChange}
-        />
+      {isSuccess && (
+        <div style={{ marginTop: "100px" }}>
+          <form
+            onSubmit={handleSubmit(onSubmit)}
+            style={{
+              margin: "auto",
+              padding: "15px",
+              maxWidth: "400px",
+              alignContent: "center",
+            }}
+          >
+            <label htmlFor="name">Name</label>
+            <input
+              type="text"
+              name="name"
+              {...register("name")}
+              placeholder="Your Name..."
+            />
 
-        <input type="submit" value={id ? "Update" : "Save"} />
-      </form>
-    </div>}
+            <label htmlFor="email">Email</label>
+            <input
+              type="text"
+              name="email"
+              {...register("email")}
+              placeholder="Your Email..."
+            />
+
+            <label htmlFor="contact">Contact</label>
+            <input
+              type="text"
+              name="contact"
+              {...register("contact")}
+              placeholder="Your Contact No. ..."
+            />
+
+            <input type="submit" value={"Save"} />
+          </form>
+        </div>
+      )}
     </div>
   );
 };
