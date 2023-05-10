@@ -1,0 +1,165 @@
+.sendmail-box {
+    margin-top: 75px;
+    width: 1298.66px;
+    height: 937px;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 12px rgba(135, 33, 241, 0.4);
+    border-radius: 43px;
+    padding: 30px 121px 0px 121px;
+}
+
+.sendmail-box h3 {
+    font-size: 25px;
+    font-weight: 600;
+    margin-left: 30px;
+    margin-bottom: 8px;
+    margin-top: 25px;
+}
+
+.select-option {
+    width: 1041.4px;
+    height: 51.41px;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 12px rgba(135, 33, 241, 0.4);
+    border-radius: 43px;
+    padding: 0px 22px;
+}
+
+select:focus{
+    outline: none;
+}
+
+.subject input {
+    width: 1041.4px;
+    height: 51.41px;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 12px rgba(135, 33, 241, 0.4);
+    border-radius: 43px;
+    padding: 0px 22px;
+}
+
+.message input {
+    width: 1056.33px;
+    height: 343.74px;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 12px rgba(135, 33, 241, 0.4);
+    border-radius: 43px;
+}
+
+.addmail input {
+    width: 1041.4px;
+    height: 51.41px;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 12px rgba(135, 33, 241, 0.4);
+    border-radius: 43px;
+    padding-left: 20px;
+}
+
+.groupname input {
+    width: 1041.4px;
+    height: 51.41px;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 12px rgba(135, 33, 241, 0.4);
+    border-radius: 43px;
+    padding-left: 20px;
+}
+
+
+.send-mail-btn {
+    display: flex;
+    justify-content: end;
+    padding: 20px 10px;
+}
+
+.send-mail-btn button {
+    width: 149.43px;
+    height: 55.68px;
+    background: #7C81EC;
+    box-shadow: 0px 4px 15px rgba(123, 126, 246, 0.5);
+    border-radius: 20px;
+    font-size: 25px;
+    font-weight: 700;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.sendmail-cont input:focus {
+    outline: none;
+}
+
+.ck-toolbar {
+    background: #FFFFFF;
+    box-shadow: 0px 4px 12px rgba(135, 33, 241, 0.4);
+    border-top-right-radius: 15px !important;
+    border-top-left-radius: 15px !important;
+
+
+}
+
+.ck-content {
+    width: 100%;
+    height: 343.74px;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 12px rgba(135, 33, 241, 0.4);
+    border-bottom-right-radius: 15px !important;
+    border-bottom-left-radius: 15px !important;
+}
+
+@media only screen and (max-width: 600px) {
+    .sendmail-box {
+        margin: 20px auto 60px auto;
+        width: 100%;
+        height: 100%;
+        border-radius: 20px;
+        padding: 20px;
+    }
+
+    .sendmail-box h3 {
+        font-size: 20px;
+        margin-left: 20px;
+        margin-bottom: 4px;
+        margin-top: 15px;
+    }
+
+    .subject input {
+        width: 100%;
+        height: 41px;
+        border-radius: 30px;
+    }
+
+    .message input {
+        width: 100%;
+        height: 250px;
+        border-radius: 20px;
+    }
+
+    .addmail input {
+        width: 100%;
+        height: 41px;
+        border-radius: 30px;
+    }
+
+    .select-option {
+        width: 100%;
+        height: 41px;
+    }
+
+    .send-mail-btn button {
+        width: 114px;
+        height: 40px;
+        font-size: 20px;
+    }
+
+    .ck-content {
+        width: 100%;
+        height: 150px;
+        background: #FFFFFF;
+        box-shadow: 0px 4px 12px rgba(135, 33, 241, 0.4);
+        border-bottom-right-radius: 15px !important;
+        border-bottom-left-radius: 15px !important;
+    }
+
+}

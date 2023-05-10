@@ -1,0 +1,23 @@
+.section-title {
+    font-size: 50px;
+    font-family: "Russo One";
+    color: #173796;
+}
+
+.sec-hr-line {
+    border: 1px solid #AF04FF;
+    box-shadow: 0px 4px 10px rgba(154, 55, 255, 0.55);
+    margin-top: 30px;
+}
+
+@media only screen and (max-width: 600px) {
+    .section-title {
+        font-size: 32px;
+        text-align: center;
+    }
+
+    .sec-hr-line {
+        width: 100%;
+        margin-top: 5px;
+    }
+}

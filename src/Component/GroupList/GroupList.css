@@ -1,0 +1,120 @@
+.dropdown {
+  margin-top: 40px;
+  width: 1310.99px;
+  height: 107px;
+  background: #FFFFFF;
+  box-shadow: 0px 4px 12px rgba(135, 33, 241, 0.4);
+  border-radius: 15px;
+}
+
+.drop-head-content-gl {
+  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  font-weight: 700;
+  font-size: 25px;
+}
+
+.drop-head-body-gl {
+  width: 75%;
+  margin: 0px 20px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.editBtn-gl {
+  width: 70px;
+  height: 90px;
+  background: #7C81EC;
+  box-shadow: 0px 4px 15px rgba(123, 126, 246, 0.5);
+  border-radius: 15px;
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  transform: translate(10px, -40px)
+}
+
+.trash-btn-gl{
+  width: 60px;
+  height: 60px;
+}
+
+.dropdown-three {
+  width: 80%;
+  height: 100%;
+  min-height: 80vh;
+  padding-top: 50px;
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+}
+
+.dropdown-four {
+  width: 100%;
+  height: 100%;
+  min-height: 50px;
+  font-size: 25px;
+  font-weight: 600;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  padding: 10px;
+  background: #FFFFFF;
+  box-shadow: 0px 4px 12px rgba(135, 33, 241, 0.4);
+  border-radius: 15px;
+}
+
+
+
+@media only screen and (max-width: 600px) {
+  .dropdown {
+    margin-top: 40px;
+    width: 100%;
+    height: 165px;
+  }
+  
+  .drop-head-content-gl {
+    font-size: 15px;
+    margin-top: 0px;
+    padding: 5px;
+  }
+  
+  .drop-head-body-gl {
+    width: 75%;
+    margin: 0px 20px;
+    flex-direction: column;
+  }
+  
+  .editBtn-gl {
+    width: 60px;
+    height: 60px;
+    transform: translate(10px, -80px)
+  }
+  
+  .trash-btn-gl{
+    width: 50px;
+    height: 50px;
+    transform: translate(-30px, 10px)
+  }
+  
+  .dropdown-three {
+    width: 90%;
+    height: 100%;
+    padding-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+  }
+  
+  .dropdown-four {
+    width: 100%;
+    height: 100%;
+    min-height: 20px;
+    font-size: 15px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 10px;
+  }
+}

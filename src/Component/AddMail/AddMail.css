@@ -1,0 +1,113 @@
+.add-email-box {
+    width: 1181px;
+    height: 485px;
+    border-radius: 43px;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 12px rgba(135, 33, 241, 0.4);
+    border-radius: 43px;
+    margin-top: 75px;
+    padding: 50px 73px 29px 73px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.add-email-sub-box {
+    display: flex;
+    justify-content: space-between;
+}
+.add-email-sub-box input:focus{
+    outline: none;
+}
+.adde-select {
+    width: 500px;
+    height: 51px;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 12px rgba(135, 33, 241, 0.4);
+    border-radius: 43px;
+}
+
+.add-email-box h2 {
+    font-size: 25px;
+    font-weight: 600;
+    margin-left: 20px;
+}
+
+.add-email-box-cont {
+    width: 500px;
+    height: 51px;
+    border-radius: 43px;
+    background: #FFFFFF;
+    box-shadow: 0px 4px 12px rgba(135, 33, 241, 0.4);
+    border-radius: 43px;
+    display: grid;
+    align-items: center;
+    padding-left: 20px;
+}
+
+.user-email p {
+    font-size: 25px;
+    font-weight: 300;
+}
+
+.ade-save {
+    display: flex;
+    justify-content: end;
+}
+
+.ade-save button {
+    font-size: 25px;
+    font-weight: 700;
+    color: white;
+    width: 150px;
+    height: 55px;
+    border-radius: 20px;
+    background: #7C81EC;
+    box-shadow: 0px 4px 15px rgba(123, 126, 246, 0.5);
+    border-radius: 20px;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+}
+
+/* For Mobile Device */
+
+@media only screen and (max-width: 600px) {
+
+    .add-email-box {
+        width: 100%;
+        height: 537px;
+        border-radius: 30px;
+        margin-top: 20px;
+        margin-bottom: 70px;
+        padding: 20px;
+    }
+
+    .add-email-sub-box {
+        flex-direction: column;
+        gap: 27px;
+
+    }
+
+    .adde-select {
+        width: 100%;
+        height: 51.41px;
+        border-radius: 20px;
+        font-size: 18px;
+        font-weight: 300;
+    }
+
+    .add-email-box-cont {
+        width: 100%;
+        border-radius: 20px;
+        font-size: 18px;
+        font-weight: 300;
+    }
+
+    .ade-save button {
+        font-size: 20px;
+        width: 114px;
+        height: 42px;
+    }
+
+}

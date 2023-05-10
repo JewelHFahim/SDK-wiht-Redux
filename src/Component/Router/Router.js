@@ -1,27 +1,28 @@
 import React from "react";
 import { createBrowserRouter } from "react-router-dom";
+import Main from "../../Layout/Main";
+import EmailList from "../EmailList/EmailList";
+import GroupList from "../GroupList/GroupList";
+import AddMail from "../AddMail/AddMail";
+import AddGroup from "../AddGroup/AddGroup";
+import SendMail from "../SendMail/SendMail";
+import UserProfile from "../UserProfile/UserProfile";
+import Notification from "../Notification/Notification";
+import Test from "../Test/Test";
+import Login from "../Login/Login";
 import PrivateRouter from "./PrivateRouter";
-import Main from "../Layout/Main";
-import UserProfile from "../Component/UserProfile/UserProfile";
-import EmailList from "../Component/EmailList/EmailList";
-import GroupList from "../Component/GroupList/GroupList";
-import AddMail from "../Component/AddMail/AddMail";
-import AddGroup from "../Component/AddGroup/AddGroup";
-import SendMailSingle from "../Component/SendMailSingle/SendMailSingle";
-import SendMail from "../Component/SendMail/SendMail";
-import Notification from "../Component/Notification/Notification";
-import Login from "../Component/Login/Login";
-
+import Main2 from "../../Layout/Main2";
+import SendMailSingle from "../SendMailSingle/SendMailSingle";
 
 const router = createBrowserRouter([
 
     {
         path: "/",
-        element:  <Main/>,
+        element: <PrivateRouter> <Main/> </PrivateRouter>,
         children: [
 
             {
-                path: "/",
+                path: "/user-profile",
                 element: <UserProfile />
             },
             {
@@ -52,6 +53,10 @@ const router = createBrowserRouter([
                 path: "/notification",
                 element: <Notification />
             },
+            {
+                path: "/test",
+                element: <Test />
+            }
         ]
     },
 

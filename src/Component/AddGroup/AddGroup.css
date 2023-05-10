@@ -1,0 +1,136 @@
+
+.add-group-box {
+  margin-top: 75px;
+  padding-top: 20px;
+  width: 1180.95px;
+  height: 534.75px;
+  background: #FFFFFF;
+  box-shadow: 0px 4px 12px rgba(135, 33, 241, 0.4);
+  border-radius: 43px;
+}
+
+.agb-btn button {
+  width: 150px;
+  height: 55px;
+  border-radius: 20px;
+  background: #7C81EC;
+  box-shadow: 0px 4px 15px rgba(123, 126, 246, 0.5);
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  font-size: 25px;
+  color: white;
+  font-weight: 700;
+  margin: 25px 35px;
+}
+
+.group-name-id input {
+  width: 499.61px;
+  height: 51.41px;
+  background: #FFFFFF;
+  box-shadow: 0px 4px 12px rgba(135, 33, 241, 0.4);
+  border-radius: 43px;
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+  font-size: 25px;
+  font-weight: 300;
+}
+.group-name-id input:focus{
+  outline: none;
+}
+
+.addNewGroup-search {
+  display: grid;
+  justify-content: center;
+  margin-top: 90px;
+}
+
+.addNewGroup-search input {
+  width: 1024.99px;
+  height: 51.41px;
+  background: #FFFFFF;
+  box-shadow: 0px 4px 12px rgba(135, 33, 241, 0.4);
+  font-size: 20px;
+  font-weight: 300;
+  border-radius: 43px;
+  opacity: 28%;
+  padding-left: 30px;
+}
+
+.addNewGroup-search input:focus {
+  outline: none;
+}
+
+.add-mail-cvs-btn {
+  display: flex;
+  gap: 30px;
+  justify-content: end;
+  padding-right: 70px;
+  margin-top: 15px;
+}
+
+.add-mail-cvs-btn button {
+  width: 224.97px;
+  height: 51.41px;
+  background: #7C81EC;
+  box-shadow: 0px 4px 12px rgba(135, 33, 241, 0.4);
+  border-radius: 43px;
+  font-size: 25px;
+  font-weight: 600;
+  color: white;
+}
+
+@media only screen and (max-width: 600px) {
+
+  .add-group-box {
+    margin-top: 20px;
+    margin-bottom: 70px;
+    width: 100%;
+    height: 537px;
+    border-radius: 20px;
+    padding: 20px;
+  }
+
+  .agb-btn button {
+    width: 114px;
+    height: 40px;
+    font-size: 20px;
+    color: white;
+    margin: 20px;
+  }
+
+  .group-name-id input {
+    width: 100%;
+    border-radius: 30px;
+    font-size: 20px;
+    font-weight: 300;
+  }
+
+  .addNewGroup-search {
+    margin-top: 20px;
+  }
+  
+  .addNewGroup-search input {
+    width: 100%;
+    height: 51.41px;
+    border-radius: 30px;
+    opacity: 28%;
+  }
+
+  .add-mail-cvs-btn {
+    justify-content: center;
+    gap: 20px;
+    padding-right: 0px;
+
+  }
+
+  .add-mail-cvs-btn button {
+    width: 130px;
+    height: 41px;
+    margin-top: 10px;
+    font-size: 15px;
+    color: white;
+  }
+
+}

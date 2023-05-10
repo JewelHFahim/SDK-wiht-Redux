@@ -1,0 +1,22 @@
+ul {
+    font-family: 'Average';
+}
+
+ul li:hover {
+    background: rgba(60, 68, 237, 0.08);
+    box-shadow: 0px 4px 15px rgba(123, 126, 246, 0.5);
+    border-radius: 15px;
+}
+
+.menu a.active {
+    color: green;
+    background: green !important ;
+  }
+
+  .drawer-content{
+    height: 100%;
+  }
+
+  input:focus{
+    outline: none;
+  }
