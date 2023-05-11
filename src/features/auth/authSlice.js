@@ -31,7 +31,8 @@ const authSlice = createSlice({
     },
 
     addToken: (state, action)=>{
-      state.token = localStorage.getItem('token')
+      state.token = localStorage.getItem('token');
+      // state.token = action.payload.token;
     },
 
     addLogout: (state, action)=>{

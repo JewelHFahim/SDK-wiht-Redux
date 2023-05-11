@@ -1,9 +1,9 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import "./Login.css";
 import img from "../../Assets/login.png";
 import logo from "../../Assets/Login Logo.png";
 import { useForm } from 'react-hook-form';
-import { useLocation, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { Fragment } from 'react';
 import { loginUser } from '../../features/auth/authSlice';
 import { useDispatch, useSelector } from 'react-redux';
@@ -15,10 +15,8 @@ import { toast } from 'react-hot-toast';
 const Login = () => {
     const { register, handleSubmit } = useForm();
     const navigate = useNavigate();
-    const location = useLocation();
-    const from = location.state?.from?.pathname || "/";
     const dispatch = useDispatch();
-    const { isLoading, error, token } = useSelector((state) => state.auth)
+    const { isLoading, token } = useSelector((state) => state.auth)
 
 
 
@@ -29,9 +27,9 @@ const Login = () => {
 
         try {
             dispatch(loginUser({ username: data.username, password: data.password }));
-            if(token){
-                toast.success('Login Success!')
-            }
+
+            toast.success('Login Success!')
+
             navigate('/');
         } catch (error) {
             console.log(error)

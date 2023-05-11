@@ -5,8 +5,9 @@ import { PropagateLoader } from 'react-spinners';
 
 const PrivateRouter = ({ children }) => {
     const location = useLocation();
-
-    const { isLoading, error, token } = useSelector((state) => state.auth);
+    const { isLoading } = useSelector((state) => state.auth);
+    const token = localStorage.getItem('token')
+    console.log(token)
 
 
     if (isLoading) {

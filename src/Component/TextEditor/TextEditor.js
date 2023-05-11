@@ -10,7 +10,7 @@ function TextEditor({content, setContent}) {
   };
 
   return (
-    <div className='pb-5'>
+    <div className='pb-10 mb-10 lg:mb-8'>
       <ReactQuill
         value={content}
         onChange={handleEditorChange}
