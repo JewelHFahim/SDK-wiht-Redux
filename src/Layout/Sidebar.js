@@ -2,12 +2,19 @@ import React from 'react';
 import Drawer from 'react-modern-drawer';
 import 'react-modern-drawer/dist/index.css';
 import logo from "../Assets/sitedocker-logo.png";
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 
 
 const Sidebar = ({ isOpen, toggleDrawer }) => {
 
-const active = 'bg-primary text-white rounded-3xl pl-2 shadow-lg mr-5'
+    const navigate = useNavigate();
+
+    const handleLogout = () => {
+        localStorage.clear();
+        navigate("/login");
+    }
+
+    const active = 'bg-primary text-white rounded-3xl pl-2 shadow-lg mr-5'
     return (
         <>
             <div className=''>
@@ -20,7 +27,7 @@ const active = 'bg-primary text-white rounded-3xl pl-2 shadow-lg mr-5'
                 >
 
                     <div className='w-[260px] h-[100px] mx-auto py-4'>
-                       <NavLink to="/"> <img src={logo} alt="" /></NavLink>
+                        <NavLink to="/"> <img src={logo} alt="" /></NavLink>
                     </div>
 
                     <div className='h-full'>
@@ -46,7 +53,7 @@ const active = 'bg-primary text-white rounded-3xl pl-2 shadow-lg mr-5'
                                 <div className='w-[58px] h-[58px] rounded-full bg-[#EA9797]'></div>
                                 <div>
                                     <p className='text-[25px] font-[900]'>User Name</p>
-                                    <button className='text-[25px] text-[#7C81EC]'>Log Out</button>
+                                    <button onClick={handleLogout} className='text-[25px] text-[#7C81EC]'>Log Out</button>
                                 </div>
                             </div>
 

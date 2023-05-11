@@ -24,13 +24,14 @@ const Login = () => {
 
     console.log(token)
 
-
-
     const onSubmit = async (data) => {
         console.log(data);
 
         try {
             dispatch(loginUser({ username: data.username, password: data.password }));
+            if(token){
+                toast.success('Login Success!')
+            }
             navigate('/');
         } catch (error) {
             console.log(error)
