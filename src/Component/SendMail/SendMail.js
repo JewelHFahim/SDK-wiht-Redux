@@ -1,24 +1,24 @@
-import React, { useContext } from 'react';
+import React from 'react';
 import "./SendMail.css";
 import SectionTitle from '../../Utilities/SectionTitle/SectionTitle';
 import { useForm } from 'react-hook-form';
 import { useState } from 'react';
-// import { UserContext } from '../../Context/AuthContext';
 import { decode as base64_decode, encode as base64_encode } from 'base-64';
-import TyniMCE from "../TyniMCE/TyniMCE";
 import { useGroupsQuery, useSendBulkMailMutation } from '../../features/email/emailApi';
+import TextEditor from '../TextEditor/TextEditor';
 
 
 const SendMail = () => {
 
     const { register, handleSubmit } = useForm();
-    const [tynimce, setTynimce] = useState();
+    const [content, setContent] = useState('');
+
     const { data: groupList } = useGroupsQuery();
     const [sendBulkMail] = useSendBulkMailMutation();
 
 
     const handleSubmit1 = (data) => {
-        let encoded = base64_encode(tynimce);
+        let encoded = base64_encode(content);
 
         try {
             const allData = {
@@ -27,7 +27,7 @@ const SendMail = () => {
                 group: data.group
             }
             console.log(allData);
-            sendBulkMail(allData);
+            // sendBulkMail(allData);
         }
         catch (err) {
             console.log(err, 'error message')
@@ -51,7 +51,7 @@ const SendMail = () => {
                     <div className='message'>
                         <h3>Message:</h3>
                         <div>
-                            {/* <TyniMCE setTynimce={setTynimce} /> */}
+                            <TextEditor content={content} setContent={setContent} />
                         </div>
                     </div>
 

@@ -1,13 +1,16 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
 import { Navigate, useLocation } from 'react-router-dom';
+import { PropagateLoader } from 'react-spinners';
 
 const PrivateRouter = ({ children }) => {
     const location = useLocation();
-    const { isLoading, error, token } = useSelector((state) => state.auth)
+    
+    const { isLoading, error, token } = useSelector((state) => state.auth);
+
 
     if(isLoading ){
-        return <p>Loading.............................</p>
+        return <div className='flex justify-center items-center w-full  h-screen bg-slate-200'><PropagateLoader color="#36d7b7" /></div>
     }
 
     if (token) {

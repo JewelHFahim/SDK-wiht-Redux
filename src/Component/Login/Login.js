@@ -31,19 +31,12 @@ const Login = () => {
 
         try {
             dispatch(loginUser({ username: data.username, password: data.password }));
+            navigate('/');
         } catch (error) {
             console.log(error)
         }
 
     }
-
-
-    useEffect(() => {
-        if (token) {
-            toast.success("login success");
-            navigate("/")
-        }
-    }, [])
 
 
     return (

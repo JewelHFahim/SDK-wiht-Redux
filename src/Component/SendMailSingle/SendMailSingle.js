@@ -3,22 +3,21 @@ import SectionTitle from '../../Utilities/SectionTitle/SectionTitle';
 import { useForm } from 'react-hook-form';
 import { useState } from 'react';
 import { decode as base64_decode, encode as base64_encode } from 'base-64';
-import TyniMCE from '../TyniMCE/TyniMCE';
-import {  useSendSingleMailMutation } from '../../features/email/emailApi';
+import { useSendSingleMailMutation } from '../../features/email/emailApi';
+import TextEditor from '../TextEditor/TextEditor';
 
 
 const SendMailSingle = () => {
 
     const { register, handleSubmit } = useForm();
-    const [tynimce, setTynimce] = useState();
-
+    const [content, setContent] = useState('');
     const [sendSingleMail] = useSendSingleMailMutation();
 
 
 
     const handleSubmit1 = (data) => {
 
-        let encoded = base64_encode(tynimce);
+        let encoded = base64_encode(content);
 
         try {
             const allData = {
@@ -28,7 +27,7 @@ const SendMailSingle = () => {
             }
 
             console.log(allData);
-            sendSingleMail(allData);
+            // sendSingleMail(allData);
 
         } catch (error) {
             console.log(error)
@@ -52,10 +51,7 @@ const SendMailSingle = () => {
 
                     <div className='message'>
                         <h3>Message:</h3>
-                        
-                        <div>
-                            {/* <TyniMCE setTynimce={setTynimce} /> */}
-                        </div>
+                        <TextEditor content={content} setContent={setContent} />
                     </div>
 
                     <div className='addmail'>
