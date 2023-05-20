@@ -7,11 +7,16 @@ import "./EmailEdit.css";
 import { useAddEmailMutation, useDeleteEmailMutation, useEmailsQuery, useGroupsQuery } from '../../features/email/emailApi';
 import { toast } from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { createFilter } from 'react-search-input';
+
+const KEYS_TO_FILTERS = ['email'];
 
 
-const EmailEdit = () => {
+const EmailEdit = ({searchUpdated, searchTerm}) => {
     const navigate = useNavigate();
     const { register, handleSubmit } = useForm();
+    const dispatch = useDispatch();
 
     const { data: emailList, isLoading, error, isFetching } = useEmailsQuery();
     const { data: groupList } = useGroupsQuery();
@@ -35,11 +40,12 @@ const EmailEdit = () => {
 
 
     const handleDelete = async (email) => {
-        if (window.confirm("Are you sure that you want to delete ?")) {
-            deleteEmail(email);
+            dispatch(deleteEmail(email));
             toast.success("Email Deleted Successfully");
-        }
     };
+
+    const filteredEmails = emailList.filter(createFilter(searchTerm, KEYS_TO_FILTERS));
+
 
     return (
         <div className='grid justify-center'>

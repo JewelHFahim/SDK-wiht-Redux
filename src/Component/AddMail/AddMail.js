@@ -1,35 +1,36 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import "./AddMail.css";
 import SectionTitle from '../../Utilities/SectionTitle/SectionTitle';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-hot-toast';
 import { useAddEmailMutation, useGroupsQuery } from '../../features/email/emailApi';
+import { useNavigate } from 'react-router-dom';
 
 const AddMail = () => {
-
     const { register, handleSubmit } = useForm();
-    const navigate = useState();
+    const navigate = useNavigate();
 
     const [addMail] = useAddEmailMutation();
-    const { data: group, isLoading, error, isFetching } = useGroupsQuery();
+    const { data: group} = useGroupsQuery();
 
 
-
-
-
-    const onSubmit = (data) => {
+    const onSubmit = (data, e) => {
+        const form = e.target;
 
         const user = {
             email: data.email,
             group: [data.group]
         }
 
-        addMail(user);
-
-        toast.success('Email Added Successfully!');
-        navigate("/email-list");
-        console.log(data)
-
+        try {
+            addMail(user);
+            console.log(data.status, "status");
+            toast.success('Email Added Successfully!');
+            form.reset();
+            navigate("/email-list");
+        } catch (error) {
+            console.log(error)
+        }
     }
 
     return (
@@ -53,7 +54,7 @@ const AddMail = () => {
                             <select className="select adde-select" {...register("group")}>
                                 <option disabled selected>Select Group Name</option>
                                 {
-                                    group.map(grp => <option value={grp.id}>{grp.title}</option>)
+                                    group && group?.map(grp => <option value={grp.id}>{grp.title}</option>)
                                 }
                             </select>
                         </div>

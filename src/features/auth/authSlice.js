@@ -6,10 +6,11 @@ const initialState = {
   token: "",
   error: "",
   message: "",
+  status: ""
 };
 
 export const loginUser = createAsyncThunk("loginUser", async (body) => {
-  const res = await fetch("http://192.168.50.245:80/login/", {
+  const res = await fetch("http://103.120.36.117/login/", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -23,7 +24,7 @@ const authSlice = createSlice({
   name: "auth",
   initialState,
   reducers: {
-    
+
     addEmail: (state, action) => {
       // state.email = localStorage.getItem("email");
       state.email = action.payload;

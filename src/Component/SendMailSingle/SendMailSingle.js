@@ -14,8 +14,8 @@ const SendMailSingle = () => {
     const [sendSingleMail] = useSendSingleMailMutation();
 
 
-
-    const handleSubmit1 = (data) => {
+    const handleSubmit1 = (data, e) => {
+        const form = e.target;
 
         let encoded = base64_encode(content);
 
@@ -27,7 +27,9 @@ const SendMailSingle = () => {
             }
 
             console.log(allData);
-            // sendSingleMail(allData);
+            sendSingleMail(allData);
+            form.reset();
+
 
         } catch (error) {
             console.log(error)

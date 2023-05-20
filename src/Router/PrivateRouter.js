@@ -7,8 +7,6 @@ const PrivateRouter = ({ children }) => {
     const location = useLocation();
     const { isLoading } = useSelector((state) => state.auth);
     const token = localStorage.getItem('token')
-    console.log(token)
-
 
     if (isLoading) {
         return <div className='flex justify-center items-center w-full  h-screen bg-slate-200'><PropagateLoader color="#7C81EC" /></div>

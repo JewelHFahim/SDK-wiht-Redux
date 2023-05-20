@@ -4,27 +4,21 @@ import SectionTitle from '../../Utilities/SectionTitle/SectionTitle';
 import { useForm } from 'react-hook-form';
 import { toast } from 'react-hot-toast';
 import { useNavigate } from 'react-router-dom';
+import { useAddGroupMutation } from '../../features/email/emailApi';
 
 const AddGroup = () => {
     const { register, handleSubmit } = useForm();
     const navigate = useNavigate();
+    const [addGroup] = useAddGroupMutation();
 
+    
     const onSubmit = (data) => {
-        console.log(data);
-        const user = {
-            title: data.title,
-        }
-        fetch("http://192.168.50.246/email/create-group/", {
-            method: "POST",
-            headers: { "content-type": "application/json" },
-            body: JSON.stringify(user),
-        })
-            .then((res) => res.json())
-            .then((data) => {
-                toast.success('Group Added Successfully!');
-                navigate("/group-list");
-                console.log(data)
-            });
+
+        const user = { title: data.title }
+
+        addGroup(user);
+        toast.success('Group Added Successfully!');
+        navigate("/group-list");
     }
 
     return (

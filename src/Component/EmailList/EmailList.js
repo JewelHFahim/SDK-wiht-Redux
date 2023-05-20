@@ -8,6 +8,15 @@ import EmailEdit from "./EmailEdit";
 
 const EmailList = () => {
 
+
+    const searchUpdated = (term) => {
+        console.log(term)
+        setSearchTerm(term);
+    }
+    const [searchTerm, setSearchTerm] = useState('');
+
+
+
     return (
         <div className="email-list">
 
@@ -38,7 +47,7 @@ const EmailList = () => {
                 </div>
             </div>
 
-            <EmailEdit />
+            <EmailEdit  searchUpdated={searchUpdated} searchTerm={searchTerm}/>
 
 
             {/* Prev Next btn */}

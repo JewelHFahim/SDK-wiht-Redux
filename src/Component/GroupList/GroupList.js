@@ -6,15 +6,16 @@ import "./GroupList.css";
 import { BiSearchAlt } from 'react-icons/bi';
 import { RiArrowDownSLine } from 'react-icons/ri';
 import SectionTitle from '../../Utilities/SectionTitle/SectionTitle';
-import { useEmailsQuery, useGroupsQuery } from '../../features/email/emailApi';
+import { useDeleteEmailMutation, useEmailsQuery, useGroupsQuery } from '../../features/email/emailApi';
+import { toast } from 'react-hot-toast';
 
 
 const GroupList = () => {
   const { data: groupList } = useGroupsQuery();
-  const { data: emailList, isLoading, error, isFetching } = useEmailsQuery();
-  console.log(groupList);
 
+  const { data: emailList } = useEmailsQuery();
 
+  const [deleteEmail] = useDeleteEmailMutation();
 
   const { register, handleSubmit } = useForm();
 
@@ -27,6 +28,11 @@ const GroupList = () => {
     //edit group option, was not build. lack of api
     //thiis section is idle now.
   }
+
+  const handleDelete = async (email) => {
+    deleteEmail(email);
+    toast.success("Email Deleted Successfully");
+  };
 
 
 
@@ -60,7 +66,7 @@ const GroupList = () => {
         </div>
       </div>
 
-      {groupList && groupList.map(gl =>
+      {groupList && groupList?.map(gl =>
 
         <div className="dropdown">
 
@@ -85,13 +91,12 @@ const GroupList = () => {
               {
                 emailList && emailList.map(eml =>
 
-
                   <form onSubmit={handleSubmit(onSubmit)} className='w-full h-full relative'>
                     <div className="x dropdown-four">
                       <p>{eml.id}</p>
                       <p>{eml.email}</p>
 
-                      <button className=''>
+                      <button onClick={() => handleDelete(eml.email)} className=''>
                         <img src={trash2} className='w-5 h-5 lg:w-10 lg:h-10' alt="" />
                       </button>
                     </div>

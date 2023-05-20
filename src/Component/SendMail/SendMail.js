@@ -17,8 +17,9 @@ const SendMail = () => {
     const [sendBulkMail] = useSendBulkMailMutation();
 
 
-    const handleSubmit1 = (data) => {
+    const handleSubmit1 = (data, e) => {
         let encoded = base64_encode(content);
+        const form = e.target;
 
         try {
             const allData = {
@@ -27,7 +28,8 @@ const SendMail = () => {
                 group: data.group
             }
             console.log(allData);
-            // sendBulkMail(allData);
+            sendBulkMail(allData);
+            form.reset();
         }
         catch (err) {
             console.log(err, 'error message')

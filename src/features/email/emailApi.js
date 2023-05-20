@@ -1,9 +1,10 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 
+
 export const emailApi = createApi({
   reducerPath: "emailApi",
   baseQuery: fetchBaseQuery({
-    baseUrl: "http://192.168.50.245/email",
+    baseUrl: "http://103.120.36.117/email/",
   }),
 
   tagTypes: ["Email"],
@@ -16,7 +17,6 @@ export const emailApi = createApi({
       providesTags: ["Email"],
     }),
 
- 
     addEmail: builder.mutation({
       query: (data) => ({
         method: "POST",
@@ -24,19 +24,28 @@ export const emailApi = createApi({
         body: data,
       }),
       invalidatesTags: ["Email"],
+
+      async onQueryStarted(data, { dispatch, queryFulfilled }) {
+        try {
+          const res = await queryFulfilled;
+          console.log(res.data);
+        } catch (error) {
+          console.log(error)
+        }
+      }
+
     }),
 
     deleteEmail: builder.mutation({
       query: (email) => ({
-        method: "DELETE",
+        method: "GET",
         url: `/delete/${email}`,
       }),
       invalidatesTags: ["Email"],
     }),
 
 
-
-    // *******************Group Api's*********************/
+    // *******************Group Api's*********************//
     groups: builder.query({
       query: () => "/get-group/",
       providesTags: ["Email"],
@@ -60,6 +69,14 @@ export const emailApi = createApi({
         body: data,
       }),
       invalidatesTags: ["Email"],
+      async onQueryStarted(data, { dispatch, queryFulfilled }) {
+        try {
+          const res = await queryFulfilled;
+          console.log(res);
+        } catch (error) {
+          console.log(error)
+        }
+      }
     }),
 
     sendBulkMail: builder.mutation({
@@ -69,13 +86,15 @@ export const emailApi = createApi({
         body: data,
       }),
       invalidatesTags: ["Email"],
+      async onQueryStarted(data, { dispatch, queryFulfilled }) {
+        try {
+          const res = await queryFulfilled;
+          console.log(res);
+        } catch (error) {
+          console.log(error)
+        }
+      }
     }),
-
-    // contact: builder.query({
-    //   query: (id) => `/contacts/${id}`,
-    //   providesTags: ["Email"],
-    // }),
-
 
 
     // updateContact: builder.mutation({
@@ -87,8 +106,10 @@ export const emailApi = createApi({
     //   invalidatesTags: ["Email"],
     // }),
 
-
   }),
 });
+
+
+
 
 export const { useEmailsQuery, useAddEmailMutation, useDeleteEmailMutation, useGroupsQuery, useAddGroupMutation, useSendSingleMailMutation, useSendBulkMailMutation } = emailApi;
