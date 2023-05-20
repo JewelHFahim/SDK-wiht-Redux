@@ -15,7 +15,6 @@ const Main = () => {
         setIsOpen((prevState) => !prevState)
     }
 
-
     return (
         <>
             <div>
@@ -28,7 +27,7 @@ const Main = () => {
                     <Sidebar isOpen={isOpen} toggleDrawer={toggleDrawer} />
                 </div>
 
-                <div className={`py-[20px] lg:pt-[40px] ${isOpen ? " lg:pl-[360px] lg:pr-[50px]" : "px-8 lg:px-[200px]"}`}>
+                <div className={`py-[20px] lg:pt-[40px] ${isOpen ? " lg:pl-[360px] lg:pr-[50px]" : "px-8 lg:px-[150px]"}`}>
                     <Outlet />
                 </div>
 

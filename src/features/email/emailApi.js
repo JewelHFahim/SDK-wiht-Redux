@@ -4,7 +4,7 @@ import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 export const emailApi = createApi({
   reducerPath: "emailApi",
   baseQuery: fetchBaseQuery({
-    baseUrl: "http://103.120.36.117/email/",
+    baseUrl: "http://192.168.50.101:81/email/",
   }),
 
   tagTypes: ["Email"],
@@ -43,6 +43,17 @@ export const emailApi = createApi({
       }),
       invalidatesTags: ["Email"],
     }),
+
+
+    emailByGroupID: builder.mutation({
+      query: (data) => ({
+        url: `/get_email_by_group/${data.id}`,
+        method: "GET",
+        body: data,
+      }),
+      invalidatesTags: ["Email"],
+    }),
+
 
 
     // *******************Group Api's*********************//
@@ -112,4 +123,4 @@ export const emailApi = createApi({
 
 
 
-export const { useEmailsQuery, useAddEmailMutation, useDeleteEmailMutation, useGroupsQuery, useAddGroupMutation, useSendSingleMailMutation, useSendBulkMailMutation } = emailApi;
+export const { useEmailsQuery, useAddEmailMutation, useDeleteEmailMutation, useGroupsQuery, useAddGroupMutation, useSendSingleMailMutation, useSendBulkMailMutation, useEmailByGroupIDMutation } = emailApi;

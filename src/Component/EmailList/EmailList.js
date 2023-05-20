@@ -1,10 +1,12 @@
-import React, { useContext, useState } from "react";
+import React, { useState } from "react";
 import "./EmailList.css";
 import { BiSearchAlt } from "react-icons/bi";
 import { RiArrowDownSLine } from "react-icons/ri";
 import { MdArrowBackIosNew, MdArrowForwardIos } from "react-icons/md";
 import SectionTitle from "../../Utilities/SectionTitle/SectionTitle";
 import EmailEdit from "./EmailEdit";
+import SearchInput from 'react-search-input';
+
 
 const EmailList = () => {
 
@@ -25,7 +27,7 @@ const EmailList = () => {
             <div className="flex justify-center">
                 <div className="email-list-header-one">
                     <div className="flex items-center gap-[10px] lg:gap-[24px] w-full">
-                        <input type="text" placeholder="Email ID, Group Name" />
+                        <SearchInput className="search-input" onChange={searchUpdated} />
                         <BiSearchAlt className="text-[38px]" />
                     </div>
 
@@ -47,7 +49,7 @@ const EmailList = () => {
                 </div>
             </div>
 
-            <EmailEdit  searchUpdated={searchUpdated} searchTerm={searchTerm}/>
+            <EmailEdit searchUpdated={searchUpdated} searchTerm={searchTerm} />
 
 
             {/* Prev Next btn */}
