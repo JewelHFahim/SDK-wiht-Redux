@@ -10,9 +10,9 @@ const PrivateRouter = ({ children }) => {
     console.log(token)
 
 
-    if (isLoading) {
-        return <div className='flex justify-center items-center w-full  h-screen bg-slate-200'><PropagateLoader color="#7C81EC" /></div>
-    }
+    // if (isLoading) {
+    //     return <div className='flex justify-center items-center w-full  h-screen bg-slate-200'><PropagateLoader color="#7C81EC" /></div>
+    // }
 
     if (token) {
         return children;
